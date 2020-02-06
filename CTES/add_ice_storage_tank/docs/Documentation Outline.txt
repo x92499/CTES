@@ -1,0 +1,62 @@
+Description:
+This measure is designed to provide maximum flexibility to users in order to simulate the basic design configurations and control schemes delineated in the ASHRAE Cool Thermal Storage Design Guide (2019).
+
+Available Design Configurations:
+1. Chiller Upstream
+2. Storage Upstream
+
+The measure will also work with a multiple chiller system, a single ice storage object will be placed relative to a single (user-selected) chiller. 
+
+Achievable* Control Schemes:
+1. Full Storage
+2. Partial Storage - Load Leveling
+3. Partial Storage - Demand Limiting
+
+Achievable* Partial Storage Discharge Priorities:
+1. Chiller Priority
+2. Storage (Ice) Priority
+
+* The term "achievable" is used because this is not a direct user input argument. See instructions below on how to achieve various controls.
+
+Implementing Various Control Schemes:
+
+Full Storage: There are four paths to obtaining full-storage performance from this measure.
+1. Select Full Storage
+2. Select Partial Storage, Storage Upstream. Set intermediate setpoint equal to the loop setpoint (eg. 44F).
+3. Select Partial Storage, Chiller Upstream. Set intermediate setpoint equal to the loop setpoint + the loop design temperature difference (eg. 54).
+4. Select Partial Storage, Chiller Upstream. Set chiller limiter equal to 0.
+
+Partial Storage - Load Leveling: There is one method to implement a load leveling strategy. Iteration maybe required to obtain the proper balance between chiller capacity reduction and ice storage capacity.
+1. Select Partial Storage. Downsize chiller. Set intermediate setpoint equal to the loop setpoint
+
+Partial Storage - Demand Limiting: There are two paths to implement this.
+1. Select Partial Storage, Chiller Upstream. Apply a chiller limit fraction.
+2. Select Partial Storage, Storage Upstream. Set intermediate setpoint to a stemperature between the loop temperature and the design maximum return water temperature (loop temp + design deltaT). 
+
+Implementing Discharge Priorities:
+
+1. Chiller Priority: Select Storage Upstream
+2. Storage Priority: Select Chiller Upstream
+
+Note: The downstream device is treated as priority within the simulation.
+
+Remarks on Using the Chiller Limiter:
+* This limiter applies only in cases where a partial ice storage discharge is meeting it's permitted portion of the cooling load, but the unmet load exceeds a desired maximum demand on the chiller. In this case, the simulation will override and relax the chiller outlet temperature setpoint, thereby increasing the load that must be met by the ice. 
+* If the remaining ice storage is insufficient to meet this increased cooling load, the load will remain unmet. 
+* Such a limiter would be applied if 1) unused ice is expected at the end of the discharge period and 2) severe penalties exist for exceeding a facility power demand limit. 
+* If a chiller limit is used, inspect the results of high cooling days to determine if the loop temperature setpoint is unmet. An output variable called Limit Counter reports the number of simulation (zone) timesteps in which the limiter was applied throughout the entire run period.
+
+Examples:
+
+...
+
+
+Prerequisites for the measure:
+* Existing building model with plant loop and chiller(s)
+* Any air-cooled, water-cooled, or adsorption chiller object
+
+Limitations of the measure:
+* Won't work with heat pump objects
+* Can't simulate a parallel configuration. This specifically refers to placing an ice storage tank in parallel with a single chiller. Applications of this configuration are limited to retrofit applications constrained by existing hardware limitations that will not be replaced in the retrofit (maximum mass flow rates). This measure works with multiple chiller loops by placing the ice tank in series with one of the existing chillers on a single branch; the selected chiller becomes the ice charging chiller. 
+
+
