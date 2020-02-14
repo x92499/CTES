@@ -13,7 +13,6 @@ class AddIceStorageTankTest < Minitest::Test
   # def teardown
   # end
 
-=begin
   def test_number_of_arguments_and_argument_names
     # create an instance of the measure
     measure = AddIceStorageTank.new
@@ -48,6 +47,12 @@ class AddIceStorageTankTest < Minitest::Test
     assert_equal('charge_end', arguments[21].name)
     assert_equal('wknds', arguments[22].name)
     assert_equal('report_freq', arguments[23].name)
+    assert_equal('dr', arguments[24].name)
+    assert_equal('dr_add_shed', arguments[25].name)
+    assert_equal('dr_date', arguments[26].name)
+    assert_equal('dr_time', arguments[27].name)
+    assert_equal('dr_dur', arguments[28].name)
+    assert_equal('dr_chill', arguments[29].name)
   end
 
 
@@ -85,10 +90,10 @@ class AddIceStorageTankTest < Minitest::Test
     # show the output
     show_output(result)
 
-    # assert that it ran correctly
+    # assert that it failed
     assert_equal('Fail', result.value.valueName)
+    assert(result.errors.size == 2)
   end
-=end
 
   def test_good_argument_values
     # create an instance of the measure
@@ -116,13 +121,13 @@ class AddIceStorageTankTest < Minitest::Test
     args_hash['objective'] = 'Full Storage'
     args_hash['upstream'] = 'Chiller'
     args_hash['storage_capacity'] = 550
-    args_hash['melt_indicator'] = 'OutsideMelt'
-    args_hash['chiller_resize_factor'] = 0.45
-    args_hash['chg_sp'] = "18"
+    args_hash['melt_indicator'] = 'InsideMelt'
+    args_hash['chiller_resize_factor'] = 0.75
+    args_hash['chg_sp'] = 26
     args_hash['loop_sp'] = 42
-    #args_hash['delta_t'] = 15
-    #args_hash['old'] = false
-    #args_hash['new'] = false
+    args_hash['delta_t'] = "16"
+    args_hash['old'] = false
+    args_hash['new'] = true
     args_hash['ctes_season'] = '06/15 - 08/25'
     args_hash['discharge_start'] = '13:00'
     args_hash['discharge_end'] = '18:00'
@@ -149,9 +154,9 @@ class AddIceStorageTankTest < Minitest::Test
 
     # assert that it ran correctly
     assert_equal('Success', result.value.valueName)
-    #assert(result.info.size == 15)
-    #assert(result.warnings.size == 2)
-    #assert(result.errors.size == 0)
+    assert(result.info.size == 17)
+    assert(result.warnings.size == 2)
+    assert(result.errors.size == 0)
 
     # save the model to test output directory
     output_file_path = "#{File.dirname(__FILE__)}//output/test_output.osm"

@@ -8574,7 +8574,7 @@ OS:PlantLoop,
   ,                                       !- Primary Plant Equipment Operation Scheme
   {9c3832d5-4523-4d81-9f86-e6edeee259d9}, !- Loop Temperature Setpoint Node Name
   40,                                     !- Maximum Loop Temperature {C}
-  -7.77777777777778,                      !- Minimum Loop Temperature {C}
+  -3.33333333333333,                      !- Minimum Loop Temperature {C}
   ,                                       !- Maximum Loop Flow Rate {m3/s}
   ,                                       !- Minimum Loop Flow Rate {m3/s}
   Autocalculate,                          !- Plant Loop Volume {m3}
@@ -8615,7 +8615,7 @@ OS:Node,
   {0431205d-72e9-4436-bfdd-842f1837f2a8}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Supply Inlet Water Node, !- Name
   {73383bd9-4ab8-4828-807b-20ad1587236c}, !- Inlet Port
-  {75f17da5-9790-4234-ae0c-21e13cb9afcd}; !- Outlet Port
+  {21d38d13-1699-4d49-949d-05f53b35c75e}; !- Outlet Port
 
 OS:Connector:Mixer,
   {2ad6abd9-87c4-4f53-b57f-3e07f78b56f5}, !- Handle
@@ -8722,7 +8722,7 @@ OS:Sizing:Plant,
   {23afc86b-798c-4fcb-b91b-47bf2994eeac}, !- Plant or Condenser Loop Name
   Cooling,                                !- Loop Type
   6.66666666666669,                       !- Design Loop Exit Temperature {C}
-  5.61111111111111,                       !- Loop Design Temperature Difference {deltaC}
+  8.88888888888889,                       !- Loop Design Temperature Difference {deltaC}
   NonCoincident,                          !- Sizing Option
   1,                                      !- Zone Timesteps in Averaging Window
   None;                                   !- Coincident Sizing Factor Mode
@@ -8869,19 +8869,19 @@ OS:Chiller:Electric:EIR,
   1,                                      !- Maximum Part Load Ratio
   1,                                      !- Optimum Part Load Ratio
   0.25,                                   !- Minimum Unloading Ratio
-  {75e28642-5e0c-4c0a-bcd8-edab6158ac3c}, !- Chilled Water Inlet Node Name
+  {295d751c-506c-4d4b-9697-6b75f2770645}, !- Chilled Water Inlet Node Name
   {7e8604c7-4d9c-456f-9cab-7d632cbff997}, !- Chilled Water Outlet Node Name
   {52b7a61a-340e-4829-8005-740051cf6d8b}, !- Condenser Inlet Node Name
   {ab55bc57-d437-4ce6-9dcf-df5dcc9c83a2}, !- Condenser Outlet Node Name
   WaterCooled,                            !- Condenser Type
   ,                                       !- Condenser Fan Power Ratio {W/W}
   ,                                       !- Compressor Motor Efficiency
-  -7.77777777777778,                      !- Leaving Chilled Water Lower Temperature Limit {C}
+  -3.33333333333333,                      !- Leaving Chilled Water Lower Temperature Limit {C}
   ConstantFlow,                           !- Chiller Flow Mode
   0,                                      !- Design Heat Recovery Water Flow Rate {m3/s}
   ,                                       !- Heat Recovery Inlet Node Name
   ,                                       !- Heat Recovery Outlet Node Name
-  0.45,                                   !- Sizing Factor
+  0.75,                                   !- Sizing Factor
   0,                                      !- Basin Heater Capacity {W/K}
   10,                                     !- Basin Heater Setpoint Temperature {C}
   ,                                       !- Basin Heater Operating Schedule Name
@@ -20966,7 +20966,7 @@ OS:Curve:Biquadratic,
   -0.0009709,                             !- Coefficient4 y
   -9.05e-005,                             !- Coefficient5 y**2
   0.0002527,                              !- Coefficient6 x*y
-  -7.77777777777778,                      !- Minimum Value of x
+  -3.33333333333333,                      !- Minimum Value of x
   10,                                     !- Maximum Value of x
   17.78,                                  !- Minimum Value of y
   46.11;                                  !- Maximum Value of y
@@ -20980,7 +20980,7 @@ OS:Curve:Biquadratic,
   0.0118156,                              !- Coefficient4 y
   0.0004345,                              !- Coefficient5 y**2
   -0.0010132,                             !- Coefficient6 x*y
-  -7.77777777777778,                      !- Minimum Value of x
+  5,                                      !- Minimum Value of x
   10,                                     !- Maximum Value of x
   17.78,                                  !- Minimum Value of y
   46.11;                                  !- Maximum Value of y
@@ -21507,23 +21507,23 @@ OS:WeatherFile,
   CC7C2CC8;                               !- Checksum
 
 OS:ThermalStorage:Ice:Detailed,
-  {6a0d262c-bfbf-40ef-bc37-b71490a9c082}, !- Handle
+  {3a230421-395c-4d50-b5ea-49196348fc61}, !- Handle
   Thermal Storage Ice Detailed 1,         !- Name
-  {a68ccce0-be8d-41d5-b942-c6ac77c06dba}, !- Availability Schedule
+  {f8a5054f-2a17-4049-8d06-addc779f3e50}, !- Availability Schedule
   6.963368627292,                         !- Capacity {GJ}
-  {75f17da5-9790-4234-ae0c-21e13cb9afcd}, !- Inlet Node Name
-  {843d5b82-2de2-4787-8762-80d1e27c422a}, !- Outlet Node Name
-  {ae2cc802-a79c-4843-81a8-ae67a899071d}, !- Discharging Curve
-  {32866fdb-7d27-481b-b6f6-9703d333bf6d}, !- Charging Curve
+  {21d38d13-1699-4d49-949d-05f53b35c75e}, !- Inlet Node Name
+  {8ec828a8-4ad6-4ac8-9a28-4d3fd4d79f94}, !- Outlet Node Name
+  {9e9a437b-b095-4f40-9a67-63a59de8243f}, !- Discharging Curve
+  {cfe8f9d9-e915-4018-984a-2323b0c7a068}, !- Charging Curve
   1,                                      !- Timestep of the Curve Data {hr}
   0.0001,                                 !- Parasitic Electric Load During Discharging {dimensionless}
   0.0002,                                 !- Parasitic Electric Load During Charging {dimensionless}
   0.0003,                                 !- Tank Loss Coefficient {dimensionless}
   0,                                      !- Freezing Temperature of Storage Medium {C}
-  OutsideMelt;                            !- Thaw Process Indicator
+  InsideMelt;                             !- Thaw Process Indicator
 
 OS:Curve:QuadraticLinear,
-  {ae2cc802-a79c-4843-81a8-ae67a899071d}, !- Handle
+  {9e9a437b-b095-4f40-9a67-63a59de8243f}, !- Handle
   Curve Quadratic Linear 1,               !- Name
   0,                                      !- Coefficient1 Constant
   0.09,                                   !- Coefficient2 x
@@ -21537,7 +21537,7 @@ OS:Curve:QuadraticLinear,
   9.9;                                    !- Maximum Value of y
 
 OS:Curve:QuadraticLinear,
-  {32866fdb-7d27-481b-b6f6-9703d333bf6d}, !- Handle
+  {cfe8f9d9-e915-4018-984a-2323b0c7a068}, !- Handle
   Curve Quadratic Linear 2,               !- Name
   0,                                      !- Coefficient1 Constant
   0.09,                                   !- Coefficient2 x
@@ -21551,45 +21551,45 @@ OS:Curve:QuadraticLinear,
   9.9;                                    !- Maximum Value of y
 
 OS:Node,
-  {18b25e6a-3e87-43f8-a3dc-2d210e6e594f}, !- Handle
+  {c2543b23-4f7f-40f3-9bd8-a257f12ce4da}, !- Handle
   Node 1,                                 !- Name
-  {843d5b82-2de2-4787-8762-80d1e27c422a}, !- Inlet Port
-  {75e28642-5e0c-4c0a-bcd8-edab6158ac3c}; !- Outlet Port
+  {8ec828a8-4ad6-4ac8-9a28-4d3fd4d79f94}, !- Inlet Port
+  {295d751c-506c-4d4b-9697-6b75f2770645}; !- Outlet Port
 
 OS:Connection,
-  {75f17da5-9790-4234-ae0c-21e13cb9afcd}, !- Handle
-  {aec3f8d7-66bd-407d-9c68-9fd4622af5b1}, !- Name
+  {21d38d13-1699-4d49-949d-05f53b35c75e}, !- Handle
+  {ef2d159d-44b2-4e4b-be34-6a325e40531c}, !- Name
   {0431205d-72e9-4436-bfdd-842f1837f2a8}, !- Source Object
   3,                                      !- Outlet Port
-  {6a0d262c-bfbf-40ef-bc37-b71490a9c082}, !- Target Object
+  {3a230421-395c-4d50-b5ea-49196348fc61}, !- Target Object
   4;                                      !- Inlet Port
 
 OS:Connection,
-  {843d5b82-2de2-4787-8762-80d1e27c422a}, !- Handle
-  {ce21ec1a-c836-49f7-a3ad-3744c0371994}, !- Name
-  {6a0d262c-bfbf-40ef-bc37-b71490a9c082}, !- Source Object
+  {8ec828a8-4ad6-4ac8-9a28-4d3fd4d79f94}, !- Handle
+  {d4454238-39fd-4dae-9e2c-bbba6d024c78}, !- Name
+  {3a230421-395c-4d50-b5ea-49196348fc61}, !- Source Object
   5,                                      !- Outlet Port
-  {18b25e6a-3e87-43f8-a3dc-2d210e6e594f}, !- Target Object
+  {c2543b23-4f7f-40f3-9bd8-a257f12ce4da}, !- Target Object
   2;                                      !- Inlet Port
 
 OS:Connection,
-  {75e28642-5e0c-4c0a-bcd8-edab6158ac3c}, !- Handle
-  {32670494-ff3b-4742-b4c3-0ea8c1f93fd5}, !- Name
-  {18b25e6a-3e87-43f8-a3dc-2d210e6e594f}, !- Source Object
+  {295d751c-506c-4d4b-9697-6b75f2770645}, !- Handle
+  {b2d8adb9-7bf2-4eef-a199-7ee84d47fe80}, !- Name
+  {c2543b23-4f7f-40f3-9bd8-a257f12ce4da}, !- Source Object
   3,                                      !- Outlet Port
   {2711a56f-799b-4cae-9d77-9a929926b683}, !- Target Object
   15;                                     !- Inlet Port
 
 OS:Schedule:Ruleset,
-  {a68ccce0-be8d-41d5-b942-c6ac77c06dba}, !- Handle
+  {f8a5054f-2a17-4049-8d06-addc779f3e50}, !- Handle
   Ice Availability Schedule (New),        !- Name
   {cd6441c7-23ad-4050-9d0e-55f14571fb12}, !- Schedule Type Limits Name
-  {7178d7d9-827a-4331-82f5-a24e424c8999}, !- Default Day Schedule Name
-  {6ad6a4ff-4e3a-46b0-8eb2-8e2e112a8bfb}, !- Summer Design Day Schedule Name
-  {26734569-6a21-4d38-ac37-d7d7d0f0734e}; !- Winter Design Day Schedule Name
+  {d2b4546f-1d6e-4be5-836b-f408d633f987}, !- Default Day Schedule Name
+  {b4e23466-541f-42e6-a740-ff5efb297947}, !- Summer Design Day Schedule Name
+  {af5386f1-0333-4215-8412-9196808bb945}; !- Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {7178d7d9-827a-4331-82f5-a24e424c8999}, !- Handle
+  {d2b4546f-1d6e-4be5-836b-f408d633f987}, !- Handle
   Ice Availability Schedule (New) AllDays, !- Name
   {cd6441c7-23ad-4050-9d0e-55f14571fb12}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21598,7 +21598,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {b269234a-c5a5-4073-a174-71ff908f555c}, !- Handle
+  {e11d172b-dc6c-4edc-8f15-e6c3a1ef689a}, !- Handle
   Schedule Day 2,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21607,7 +21607,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {26734569-6a21-4d38-ac37-d7d7d0f0734e}, !- Handle
+  {af5386f1-0333-4215-8412-9196808bb945}, !- Handle
   Ice Availability Schedule (New) Winter Design Day, !- Name
   {cd6441c7-23ad-4050-9d0e-55f14571fb12}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21616,7 +21616,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {2ce738f6-7486-49f1-901c-1204bbc6bf37}, !- Handle
+  {034258ba-d3eb-471b-a0e8-731834994231}, !- Handle
   Schedule Day 3,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21625,7 +21625,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {6ad6a4ff-4e3a-46b0-8eb2-8e2e112a8bfb}, !- Handle
+  {b4e23466-541f-42e6-a740-ff5efb297947}, !- Handle
   Ice Availability Schedule (New) Summer Design Day, !- Name
   {cd6441c7-23ad-4050-9d0e-55f14571fb12}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21646,11 +21646,11 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 5
 
 OS:Schedule:Rule,
-  {20107ae8-5485-451b-8ce2-98b2bff2fa7c}, !- Handle
+  {56a71d59-82b6-48a3-9d32-fecdb949feb4}, !- Handle
   Ice Availability Schedule (New) Weekend Rule, !- Name
-  {a68ccce0-be8d-41d5-b942-c6ac77c06dba}, !- Schedule Ruleset Name
+  {f8a5054f-2a17-4049-8d06-addc779f3e50}, !- Schedule Ruleset Name
   1,                                      !- Rule Order
-  {decd6a0a-47a1-404f-83ab-68a4bcc50ea6}, !- Day Schedule Name
+  {2bb0b0fd-cf2a-4640-a58e-41caeacf391a}, !- Day Schedule Name
   Yes,                                    !- Apply Sunday
   ,                                       !- Apply Monday
   ,                                       !- Apply Tuesday
@@ -21666,7 +21666,7 @@ OS:Schedule:Rule,
   25;                                     !- End Day
 
 OS:Schedule:Day,
-  {decd6a0a-47a1-404f-83ab-68a4bcc50ea6}, !- Handle
+  {2bb0b0fd-cf2a-4640-a58e-41caeacf391a}, !- Handle
   Ice Availability Schedule (New) Weekend, !- Name
   {cd6441c7-23ad-4050-9d0e-55f14571fb12}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21687,11 +21687,11 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 5
 
 OS:Schedule:Rule,
-  {4084b7b8-f4f3-44f6-9b08-9af2236e62df}, !- Handle
+  {be9e57e2-ea63-4c66-8da6-ae01faee6aa3}, !- Handle
   Ice Availability Schedule (New) Summer Weekday Rule, !- Name
-  {a68ccce0-be8d-41d5-b942-c6ac77c06dba}, !- Schedule Ruleset Name
+  {f8a5054f-2a17-4049-8d06-addc779f3e50}, !- Schedule Ruleset Name
   0,                                      !- Rule Order
-  {1f558de2-4cf1-4a9c-bdc5-1eb3f72bc5e3}, !- Day Schedule Name
+  {8909fbde-2f44-4a1a-9cdd-7abc32de9a4c}, !- Day Schedule Name
   ,                                       !- Apply Sunday
   Yes,                                    !- Apply Monday
   Yes,                                    !- Apply Tuesday
@@ -21707,7 +21707,7 @@ OS:Schedule:Rule,
   25;                                     !- End Day
 
 OS:Schedule:Day,
-  {1f558de2-4cf1-4a9c-bdc5-1eb3f72bc5e3}, !- Handle
+  {8909fbde-2f44-4a1a-9cdd-7abc32de9a4c}, !- Handle
   Ice Availability Schedule (New) Summer Weekday, !- Name
   {cd6441c7-23ad-4050-9d0e-55f14571fb12}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21728,15 +21728,15 @@ OS:Schedule:Day,
   1;                                      !- Value Until Time 5
 
 OS:Schedule:Ruleset,
-  {148fbbb1-2a37-44eb-993a-a7df77b1fd0f}, !- Handle
+  {0aaf17a6-81a6-4588-b22a-6d9e41442ab0}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New), !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
-  {39b0052d-068b-4d4c-8f7e-3c19bce42d00}, !- Default Day Schedule Name
-  {3501f088-db2d-4f8d-bc1c-b5626ded5c01}, !- Summer Design Day Schedule Name
-  {08c22267-ae9c-4aa4-94f5-1d0227513f4b}; !- Winter Design Day Schedule Name
+  {a3d3dc45-1934-4d24-9bbd-dd69f83ac02a}, !- Default Day Schedule Name
+  {b8167a1e-f238-4d9d-b36e-7f0b8a723fc5}, !- Summer Design Day Schedule Name
+  {7a484a82-c805-4d41-a027-4526d14c6b0a}; !- Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {39b0052d-068b-4d4c-8f7e-3c19bce42d00}, !- Handle
+  {a3d3dc45-1934-4d24-9bbd-dd69f83ac02a}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) AllDays, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21745,7 +21745,7 @@ OS:Schedule:Day,
   99;                                     !- Value Until Time 1
 
 OS:Schedule:Day,
-  {41d57f48-d459-48a4-8358-a6f7db5ef187}, !- Handle
+  {f5f9d9b8-d8e4-4c43-a4bf-6b431a5d9df8}, !- Handle
   Schedule Day 4,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21754,7 +21754,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {08c22267-ae9c-4aa4-94f5-1d0227513f4b}, !- Handle
+  {7a484a82-c805-4d41-a027-4526d14c6b0a}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) Winter Design Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21763,7 +21763,7 @@ OS:Schedule:Day,
   99;                                     !- Value Until Time 1
 
 OS:Schedule:Day,
-  {f7c0acfe-a55a-4491-9379-0953a94074ad}, !- Handle
+  {4aa57cbf-0acf-4891-8360-41367cada148}, !- Handle
   Schedule Day 5,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21772,7 +21772,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {3501f088-db2d-4f8d-bc1c-b5626ded5c01}, !- Handle
+  {b8167a1e-f238-4d9d-b36e-7f0b8a723fc5}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) Summer Design Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21793,11 +21793,11 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 5
 
 OS:Schedule:Rule,
-  {cf4285e2-f782-40c3-b932-63ebf7ce04df}, !- Handle
+  {3704dd0c-2171-466d-a4f2-cc6c568c45ca}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) Weekend Rule, !- Name
-  {148fbbb1-2a37-44eb-993a-a7df77b1fd0f}, !- Schedule Ruleset Name
+  {0aaf17a6-81a6-4588-b22a-6d9e41442ab0}, !- Schedule Ruleset Name
   1,                                      !- Rule Order
-  {63fda613-7708-4463-b667-a1e653f1241a}, !- Day Schedule Name
+  {2e3a6ebb-09f4-47d6-9171-f45f5fa0fab0}, !- Day Schedule Name
   Yes,                                    !- Apply Sunday
   ,                                       !- Apply Monday
   ,                                       !- Apply Tuesday
@@ -21813,7 +21813,7 @@ OS:Schedule:Rule,
   25;                                     !- End Day
 
 OS:Schedule:Day,
-  {63fda613-7708-4463-b667-a1e653f1241a}, !- Handle
+  {2e3a6ebb-09f4-47d6-9171-f45f5fa0fab0}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) Weekend, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21834,11 +21834,11 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 5
 
 OS:Schedule:Rule,
-  {a1d5113c-449b-4b0d-b21c-91f80aa3d5b4}, !- Handle
+  {5ab76e62-b53c-4958-ac95-1ae66a546dc1}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) Summer Weekday Rule, !- Name
-  {148fbbb1-2a37-44eb-993a-a7df77b1fd0f}, !- Schedule Ruleset Name
+  {0aaf17a6-81a6-4588-b22a-6d9e41442ab0}, !- Schedule Ruleset Name
   0,                                      !- Rule Order
-  {2e16a6f5-fa27-44c0-aaca-d3e4b81e45b1}, !- Day Schedule Name
+  {4462d423-7467-450d-9591-8b7f02aa7974}, !- Day Schedule Name
   ,                                       !- Apply Sunday
   Yes,                                    !- Apply Monday
   Yes,                                    !- Apply Tuesday
@@ -21854,7 +21854,7 @@ OS:Schedule:Rule,
   25;                                     !- End Day
 
 OS:Schedule:Day,
-  {2e16a6f5-fa27-44c0-aaca-d3e4b81e45b1}, !- Handle
+  {4462d423-7467-450d-9591-8b7f02aa7974}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New) Summer Weekday, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21875,15 +21875,15 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 5
 
 OS:Schedule:Ruleset,
-  {ccdd574f-96fc-4195-800d-7870c1a41431}, !- Handle
+  {d7e67773-3819-45f2-8953-f7a3dab30685}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New), !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
-  {d7f9374a-3a2d-4e0d-86ec-4189c426d33c}, !- Default Day Schedule Name
-  {af256657-dd3e-4d10-a0a0-ececd2ea57e6}, !- Summer Design Day Schedule Name
-  {f8a500ce-0a0b-4fbb-8b4d-880030c37fac}; !- Winter Design Day Schedule Name
+  {7d1ea103-990a-4423-b675-ea8b141023a9}, !- Default Day Schedule Name
+  {6dd8360f-8cc1-4326-8d27-82ac64c7c91c}, !- Summer Design Day Schedule Name
+  {e8a99959-fed4-4bf8-becc-b1b6e7d809c9}; !- Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {d7f9374a-3a2d-4e0d-86ec-4189c426d33c}, !- Handle
+  {7d1ea103-990a-4423-b675-ea8b141023a9}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) AllDays, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21892,7 +21892,7 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 1
 
 OS:Schedule:Day,
-  {bced3a30-bffe-4122-8a49-1e97704b7e73}, !- Handle
+  {6f29d9c4-fd95-4901-8afd-2d8d9cd04b97}, !- Handle
   Schedule Day 6,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21901,7 +21901,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {f8a500ce-0a0b-4fbb-8b4d-880030c37fac}, !- Handle
+  {e8a99959-fed4-4bf8-becc-b1b6e7d809c9}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) Winter Design Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21910,7 +21910,7 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 1
 
 OS:Schedule:Day,
-  {728fb2d7-6541-41e3-8ef0-845b2373988c}, !- Handle
+  {8e387655-22c0-4a9c-b3bf-0301fbccbe07}, !- Handle
   Schedule Day 7,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -21919,13 +21919,13 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {af256657-dd3e-4d10-a0a0-ececd2ea57e6}, !- Handle
+  {6dd8360f-8cc1-4326-8d27-82ac64c7c91c}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) Summer Design Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
   5,                                      !- Hour 1
   30,                                     !- Minute 1
-  -7.77777777777778,                      !- Value Until Time 1
+  -3.33333333333333,                      !- Value Until Time 1
   13,                                     !- Hour 2
   0,                                      !- Minute 2
   5.55555555555556,                       !- Value Until Time 2
@@ -21937,14 +21937,14 @@ OS:Schedule:Day,
   5.55555555555556,                       !- Value Until Time 4
   24,                                     !- Hour 5
   0,                                      !- Minute 5
-  -7.77777777777778;                      !- Value Until Time 5
+  -3.33333333333333;                      !- Value Until Time 5
 
 OS:Schedule:Rule,
-  {f4130222-58e1-4f61-ab3a-1c8cf8107cd3}, !- Handle
+  {022be0f0-7fb5-42d1-a121-e19c8df939e0}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) Weekend Rule, !- Name
-  {ccdd574f-96fc-4195-800d-7870c1a41431}, !- Schedule Ruleset Name
+  {d7e67773-3819-45f2-8953-f7a3dab30685}, !- Schedule Ruleset Name
   1,                                      !- Rule Order
-  {c3047932-cc01-4790-a7d0-d3315de85fe2}, !- Day Schedule Name
+  {e8eb65ec-ede6-42c6-8062-4448f307e347}, !- Day Schedule Name
   Yes,                                    !- Apply Sunday
   ,                                       !- Apply Monday
   ,                                       !- Apply Tuesday
@@ -21960,13 +21960,13 @@ OS:Schedule:Rule,
   25;                                     !- End Day
 
 OS:Schedule:Day,
-  {c3047932-cc01-4790-a7d0-d3315de85fe2}, !- Handle
+  {e8eb65ec-ede6-42c6-8062-4448f307e347}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) Weekend, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
   5,                                      !- Hour 1
   30,                                     !- Minute 1
-  -7.77777777777778,                      !- Value Until Time 1
+  -3.33333333333333,                      !- Value Until Time 1
   13,                                     !- Hour 2
   0,                                      !- Minute 2
   5.55555555555556,                       !- Value Until Time 2
@@ -21978,14 +21978,14 @@ OS:Schedule:Day,
   5.55555555555556,                       !- Value Until Time 4
   24,                                     !- Hour 5
   0,                                      !- Minute 5
-  -7.77777777777778;                      !- Value Until Time 5
+  -3.33333333333333;                      !- Value Until Time 5
 
 OS:Schedule:Rule,
-  {5da8a96f-add1-432d-a7e1-f8f19de20131}, !- Handle
+  {b104d7a0-0605-44cb-b807-a248ba83d368}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) Summer Weekday Rule, !- Name
-  {ccdd574f-96fc-4195-800d-7870c1a41431}, !- Schedule Ruleset Name
+  {d7e67773-3819-45f2-8953-f7a3dab30685}, !- Schedule Ruleset Name
   0,                                      !- Rule Order
-  {3cd4aa2f-20f1-48fa-a5f2-d5d31582fba5}, !- Day Schedule Name
+  {9c8e05fe-4574-4601-9049-8a8ae643e922}, !- Day Schedule Name
   ,                                       !- Apply Sunday
   Yes,                                    !- Apply Monday
   Yes,                                    !- Apply Tuesday
@@ -22001,13 +22001,13 @@ OS:Schedule:Rule,
   25;                                     !- End Day
 
 OS:Schedule:Day,
-  {3cd4aa2f-20f1-48fa-a5f2-d5d31582fba5}, !- Handle
+  {9c8e05fe-4574-4601-9049-8a8ae643e922}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New) Summer Weekday, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
   5,                                      !- Hour 1
   30,                                     !- Minute 1
-  -7.77777777777778,                      !- Value Until Time 1
+  -3.33333333333333,                      !- Value Until Time 1
   13,                                     !- Hour 2
   0,                                      !- Minute 2
   5.55555555555556,                       !- Value Until Time 2
@@ -22019,18 +22019,18 @@ OS:Schedule:Day,
   5.55555555555556,                       !- Value Until Time 4
   24,                                     !- Hour 5
   0,                                      !- Minute 5
-  -7.77777777777778;                      !- Value Until Time 5
+  -3.33333333333333;                      !- Value Until Time 5
 
 OS:Schedule:Ruleset,
-  {f8863777-b9b3-4725-a18d-8d85fce2e65f}, !- Handle
+  {bfe0a3ba-d526-40af-a732-7c3bb72b1fd8}, !- Handle
   Chilled Water Loop Setpoint Schedule (New), !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
-  {bab91127-6d06-40b6-b969-fc551f3f7842}, !- Default Day Schedule Name
-  {cf2560ad-cd5d-491f-9d63-23c7420a9dd5}, !- Summer Design Day Schedule Name
-  {87217708-7f71-4898-96fb-bb69f5081488}; !- Winter Design Day Schedule Name
+  {b9a869cf-3305-4d5e-8600-250dfa763553}, !- Default Day Schedule Name
+  {1b197c06-3fd6-4ee3-8101-dfe244f6dda4}, !- Summer Design Day Schedule Name
+  {685546ab-0d2f-45ef-8796-eda8f16326f9}; !- Winter Design Day Schedule Name
 
 OS:Schedule:Day,
-  {bab91127-6d06-40b6-b969-fc551f3f7842}, !- Handle
+  {b9a869cf-3305-4d5e-8600-250dfa763553}, !- Handle
   Chilled Water Loop Setpoint Schedule (New) Schedule Week Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -22039,7 +22039,7 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 1
 
 OS:Schedule:Day,
-  {4105b6d5-7d83-4475-bd99-77b6d2ac4fd4}, !- Handle
+  {502313ab-4b3d-4440-b6c7-32c3a08e851f}, !- Handle
   Schedule Day 8,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -22048,7 +22048,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {87217708-7f71-4898-96fb-bb69f5081488}, !- Handle
+  {685546ab-0d2f-45ef-8796-eda8f16326f9}, !- Handle
   Chilled Water Loop Setpoint Schedule (New) Winter Design Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -22057,7 +22057,7 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 1
 
 OS:Schedule:Day,
-  {bb6443de-b0c5-471f-b317-649633204645}, !- Handle
+  {bfd25519-ee8c-405e-8596-a41d25955e76}, !- Handle
   Schedule Day 9,                         !- Name
   ,                                       !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -22066,7 +22066,7 @@ OS:Schedule:Day,
   0;                                      !- Value Until Time 1
 
 OS:Schedule:Day,
-  {cf2560ad-cd5d-491f-9d63-23c7420a9dd5}, !- Handle
+  {1b197c06-3fd6-4ee3-8101-dfe244f6dda4}, !- Handle
   Chilled Water Loop Setpoint Schedule (New) Summer Design Day, !- Name
   {81fed632-9d6d-465e-aa3a-1f593ff53aa1}, !- Schedule Type Limits Name
   ,                                       !- Interpolate to Timestep
@@ -22075,113 +22075,113 @@ OS:Schedule:Day,
   5.55555555555556;                       !- Value Until Time 1
 
 OS:SetpointManager:Scheduled,
-  {6aadc109-825a-4f3c-b778-c4922c87e393}, !- Handle
+  {7e48102e-0230-40a6-a5bf-b8e9bc232f8c}, !- Handle
   Thermal Storage Ice Detailed 1 Setpoint Manager, !- Name
   Temperature,                            !- Control Variable
-  {148fbbb1-2a37-44eb-993a-a7df77b1fd0f}, !- Schedule Name
-  {18b25e6a-3e87-43f8-a3dc-2d210e6e594f}; !- Setpoint Node or NodeList Name
+  {0aaf17a6-81a6-4588-b22a-6d9e41442ab0}, !- Schedule Name
+  {c2543b23-4f7f-40f3-9bd8-a257f12ce4da}; !- Setpoint Node or NodeList Name
 
 OS:SetpointManager:Scheduled,
-  {44309b87-22e6-4717-b7ba-fa6278bb95dc}, !- Handle
+  {3ccd456c-534d-46b1-99dd-0e0b7c80bd3b}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Manager, !- Name
   Temperature,                            !- Control Variable
-  {ccdd574f-96fc-4195-800d-7870c1a41431}, !- Schedule Name
+  {d7e67773-3819-45f2-8953-f7a3dab30685}, !- Schedule Name
   {d74e16ed-f8cf-4bb9-9aac-0a1ff79ea65f}; !- Setpoint Node or NodeList Name
 
 OS:SetpointManager:Scheduled,
-  {33451382-076c-4892-b5b0-41056d5b6a13}, !- Handle
+  {1f234f0e-640b-41dd-a715-77736decb5d9}, !- Handle
   Chilled Water Loop Setpoint Manager (New), !- Name
   Temperature,                            !- Control Variable
-  {f8863777-b9b3-4725-a18d-8d85fce2e65f}, !- Schedule Name
+  {bfe0a3ba-d526-40af-a732-7c3bb72b1fd8}, !- Schedule Name
   {9c3832d5-4523-4d81-9f86-e6edeee259d9}; !- Setpoint Node or NodeList Name
 
 OS:SetpointManager:Scheduled,
-  {bb7e584d-35da-47ac-a648-603a647bdff8}, !- Handle
+  {abd46570-09ae-429b-961b-575195caf4c5}, !- Handle
   Chilled Water Loop Demand Side Setpoint Manager (New), !- Name
   Temperature,                            !- Control Variable
-  {f8863777-b9b3-4725-a18d-8d85fce2e65f}, !- Schedule Name
+  {bfe0a3ba-d526-40af-a732-7c3bb72b1fd8}, !- Schedule Name
   {5ba8789e-eb5d-4d0f-896a-f14bd8ba3955}; !- Setpoint Node or NodeList Name
 
 OS:Output:EnergyManagementSystem,
-  {1df9d664-280c-44fa-bb7e-263144da07d6}, !- Handle
+  {b0d5ac0f-434a-4ed5-907b-e4831e260f78}, !- Handle
   Output Energy Management System 1,      !- Name
   Verbose,                                !- Actuator Availability Dictionary Reporting
   Verbose,                                !- Internal Variable Availability Dictionary Reporting
   None;                                   !- EMS Runtime Language Debug Output Level
 
 OS:EnergyManagementSystem:InternalVariable,
-  {94993a44-0cd9-431c-be04-77c550139986}, !- Handle
+  {f01e5174-bfca-4cd1-93a2-1904a5c14f9b}, !- Handle
   CTES_Chiller_Capacity,                  !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton, !- Internal Data Index Key Name
   Chiller Nominal Capacity;               !- Internal Data Type
 
 OS:EnergyManagementSystem:GlobalVariable,
-  {a7e3ff91-ddea-4648-ad0c-7287520754ec}, !- Handle
+  {c91d561e-e96a-4316-8af0-408d3be77f66}, !- Handle
   Chiller_Limited_Capacity;               !- Name
 
 OS:EnergyManagementSystem:GlobalVariable,
-  {a18f0a6f-841e-47eb-bb3f-3fcc3be7919a}, !- Handle
+  {cabca458-02a9-4f87-ada2-9ea45f3ac6b2}, !- Handle
   Limit_Counter;                          !- Name
 
 OS:EnergyManagementSystem:GlobalVariable,
-  {69a5dc07-eaf9-48b0-80da-8d1d5947bfe0}, !- Handle
+  {b489d6d8-91a4-4625-a2a7-9f715879b449}, !- Handle
   DT_Max;                                 !- Name
 
 OS:EnergyManagementSystem:GlobalVariable,
-  {2feda494-fd81-4b70-ac13-25be3c9fe126}, !- Handle
+  {452a5e20-be94-45fc-9382-ffea178ecdc3}, !- Handle
   DR_Flag;                                !- Name
 
 OS:EnergyManagementSystem:Sensor,
-  {627b4ac1-8aa0-4fc7-8eb2-a851384b8478}, !- Handle
+  {50ef0fc8-d7bd-40a4-b5b9-7097c1d54e2b}, !- Handle
   EEWT,                                   !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton, !- Output Variable or Output Meter Index Key Name
   Chiller Evaporator Inlet Temperature;   !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Sensor,
-  {c1b8bce8-0c37-4073-b30b-8864c63f2f9f}, !- Handle
+  {72a46ce7-25b5-4046-802d-9b1227ef72b0}, !- Handle
   ELWT,                                   !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton, !- Output Variable or Output Meter Index Key Name
   Chiller Evaporator Outlet Temperature;  !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Sensor,
-  {931f9bfb-8b7d-4292-bfd3-b9142b987f20}, !- Handle
+  {0872b9cd-fb6a-4d03-8e2f-27ff2cc5d390}, !- Handle
   SP,                                     !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New), !- Output Variable or Output Meter Index Key Name
   Schedule Value;                         !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Sensor,
-  {ba281dcd-3cb5-443f-89a8-28acbff28b95}, !- Handle
+  {cbba558e-ff29-42cb-9a3f-11141b40ae03}, !- Handle
   SWT_SP,                                 !- Name
   Chilled Water Loop Supply Outlet Node,  !- Output Variable or Output Meter Index Key Name
   System Node Setpoint Temperature;       !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Sensor,
-  {e22a354b-7759-44af-9a78-ad7ce1402c14}, !- Handle
+  {4f3e06d9-d185-4ced-9582-3fc60d9ad554}, !- Handle
   ICE_AV,                                 !- Name
   Ice Availability Schedule (New),        !- Output Variable or Output Meter Index Key Name
   Schedule Value;                         !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Sensor,
-  {074aa9e9-df1b-4137-8769-33f786d21b90}, !- Handle
+  {b7e8c1d2-db94-41b8-926f-eac5091035d3}, !- Handle
   ILWT,                                   !- Name
   Node 1,                                 !- Output Variable or Output Meter Index Key Name
   System Node Temperature;                !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Sensor,
-  {4b424b83-9714-4fcc-b240-127d64950507}, !- Handle
+  {094458fd-c7a5-4013-ace1-07a8b874bfe2}, !- Handle
   SOC,                                    !- Name
   Thermal Storage Ice Detailed 1,         !- Output Variable or Output Meter Index Key Name
   Ice Thermal Storage End Fraction;       !- Output Variable or Output Meter Name
 
 OS:EnergyManagementSystem:Actuator,
-  {5783c5fb-db61-4bb2-9541-eff6ee37dc74}, !- Handle
+  {29d6f79b-2045-4865-a27d-3cb104b94b62}, !- Handle
   ELWT_SP,                                !- Name
   {d74e16ed-f8cf-4bb9-9aac-0a1ff79ea65f}, !- Actuated Component Name
   System Node Setpoint,                   !- Actuated Component Type
   Temperature Setpoint;                   !- Actuated Component Control Type
 
 OS:EnergyManagementSystem:Program,
-  {01e1a4a3-565c-4fb5-8a14-3f40ab438d72}, !- Handle
+  {e4f72a84-e3a8-4359-91a6-485c02b80b52}, !- Handle
   Chiller_Limiter,                        !- Name
   IF ( ICE_AV == 1 ) && ( SP >= SWT_SP ) && ( DR_Flag <> 1 ), !- Program Line 1
   IF ( EEWT - SP ) > DT_Max,              !- Program Line 2
@@ -22195,482 +22195,482 @@ OS:EnergyManagementSystem:Program,
   ENDIF;                                  !- Program Line 10
 
 OS:EnergyManagementSystem:Program,
-  {bd831778-f6a1-41de-9865-6f70333948a6}, !- Handle
+  {fd93d147-86e2-4e2e-88c4-d2bbd03b9944}, !- Handle
   Chiller_Limit_Calc,                     !- Name
   SET Chiller_Limited_Capacity = ( 0.75 * CTES_Chiller_Capacity ), !- Program Line 1
   SET Limit_Counter = 0,                  !- Program Line 2
   SET DR_Flag = 0,                        !- Program Line 3
-  SET DT_Max = 4.208333333333332;         !- Program Line 4
+  SET DT_Max = 6.666666666666667;         !- Program Line 4
 
 OS:EnergyManagementSystem:ProgramCallingManager,
-  {f4f9e9f7-cba5-474c-8fcd-f23eeceaffc1}, !- Handle
+  {ef777fe0-e2f0-42fb-9d22-515580348c2e}, !- Handle
   Chiller_Limiter_CallMgr,                !- Name
   InsideHVACSystemIterationLoop,          !- EnergyPlus Model Calling Point
-  {01e1a4a3-565c-4fb5-8a14-3f40ab438d72}; !- Program Name 1
+  {e4f72a84-e3a8-4359-91a6-485c02b80b52}; !- Program Name 1
 
 OS:EnergyManagementSystem:ProgramCallingManager,
-  {66593f03-a503-4d9a-acb8-4a6b3b3a033b}, !- Handle
+  {ff45afa5-ad14-4dbb-8dba-095a3706baee}, !- Handle
   Chiller_Limit_Calc_CallMgr,             !- Name
   BeginNewEnvironment,                    !- EnergyPlus Model Calling Point
-  {bd831778-f6a1-41de-9865-6f70333948a6}; !- Program Name 1
+  {fd93d147-86e2-4e2e-88c4-d2bbd03b9944}; !- Program Name 1
 
 OS:EnergyManagementSystem:OutputVariable,
-  {67f3453b-4aa8-4154-9815-45be3c8f649d}, !- Handle
+  {2eeeee48-b0f8-4f69-ad3b-3d732b31467a}, !- Handle
   Chiller Nominal Capacity,               !- Name
-  {94993a44-0cd9-431c-be04-77c550139986}, !- EMS Variable Name
+  {f01e5174-bfca-4cd1-93a2-1904a5c14f9b}, !- EMS Variable Name
   Averaged,                               !- Type of Data in Variable
   ZoneTimestep;                           !- Update Frequency
 
 OS:EnergyManagementSystem:OutputVariable,
-  {ea522ac0-835d-41bc-832f-3876a819aba3}, !- Handle
+  {63651dd9-de4e-4039-bf13-f5244eae4cce}, !- Handle
   Chiller Limited Capacity,               !- Name
-  {a7e3ff91-ddea-4648-ad0c-7287520754ec}, !- EMS Variable Name
+  {c91d561e-e96a-4316-8af0-408d3be77f66}, !- EMS Variable Name
   Averaged,                               !- Type of Data in Variable
   ZoneTimestep;                           !- Update Frequency
 
 OS:EnergyManagementSystem:OutputVariable,
-  {db99211f-b5ad-49c2-a90b-8cc9ba7b41bd}, !- Handle
+  {04c42597-4b32-413d-b590-0cbfb8f55c4f}, !- Handle
   Chiller Limit Counter,                  !- Name
-  {a18f0a6f-841e-47eb-bb3f-3fcc3be7919a}, !- EMS Variable Name
+  {cabca458-02a9-4f87-ada2-9ea45f3ac6b2}, !- EMS Variable Name
   Averaged,                               !- Type of Data in Variable
   ZoneTimestep;                           !- Update Frequency
 
 OS:Output:Variable,
-  {05dd8a5e-1221-425d-bdfc-c6ee239d615f}, !- Handle
+  {65bfc5b0-7bc0-4c78-a371-ae65c8900e2d}, !- Handle
   Output Variable 8,                      !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Cooling Rate,       !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {b5926f23-aaab-49f7-b0c2-8afbe41db7be}, !- Handle
+  {0ab1619a-1c08-48a2-8641-2ef7c1650fff}, !- Handle
   Output Variable 9,                      !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Cooling Charge Rate, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {4ba2be7e-e15d-469d-983a-0d5ef5c86cf6}, !- Handle
+  {99dea5b0-dc68-49b5-8f85-2e857d016790}, !- Handle
   Output Variable 10,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Cooling Discharge Rate, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {d8cf7158-2a48-4201-afc4-d77329e7cf60}, !- Handle
+  {232f2d05-36cd-4881-aa6c-688934b8911d}, !- Handle
   Output Variable 11,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Cooling Charge Energy, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {4ddb5da9-c98c-4902-ae8b-83056760785b}, !- Handle
+  {e24672a4-3733-405c-a3e6-63a244039894}, !- Handle
   Output Variable 12,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Cooling Discharge Energy, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {2325cae9-c0a1-4637-b5d8-e78c45979685}, !- Handle
+  {a3c40df8-55d7-4cf4-9e15-f914d14baaeb}, !- Handle
   Output Variable 13,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Cooling Discharge Energy, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {224a590e-0f52-4b2f-be67-cc548715b4b7}, !- Handle
+  {d7fc3b5d-8708-482e-8659-9a1a0090f48b}, !- Handle
   Output Variable 14,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage End Fraction,       !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {f89bf80a-e1ad-4a80-86ab-4967ab7789b7}, !- Handle
+  {40d14bf2-5213-4a1e-b37e-b657197f5c12}, !- Handle
   Output Variable 15,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage On Coil Fraction,   !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {6776ecac-6c34-4b38-b6f4-a9d47151c9be}, !- Handle
+  {3155d953-52cd-4bb8-8819-059f29a11651}, !- Handle
   Output Variable 16,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Mass Flow Rate,     !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {32dfe120-2f36-4db8-832b-6a2d16141c67}, !- Handle
+  {0d90bd44-e924-4bca-93e5-2254e090dc3e}, !- Handle
   Output Variable 17,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Tank Mass Flow Rate, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {8a28088d-3962-4a20-9f84-8f7d477ed3ca}, !- Handle
+  {1a1e0645-af93-4a59-8c2c-5911567566c2}, !- Handle
   Output Variable 18,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Bypass Mass Flow Rate, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {51c25cd7-ab67-4e5f-861f-9537e96b72b4}, !- Handle
+  {053edd84-10f8-42a3-8b45-cb0754132dfd}, !- Handle
   Output Variable 19,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Fluid Inlet Temperature, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {e4841edc-a982-4a7a-bc3c-8b8f53d1f299}, !- Handle
+  {4dde7462-918a-4be7-93b8-35d489275087}, !- Handle
   Output Variable 20,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Tank Outlet Temperature, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {afd61660-fa8e-46af-b80a-c3d80257ffdf}, !- Handle
+  {9c4e9e18-6606-41d1-b4be-c31b7ff427dd}, !- Handle
   Output Variable 21,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Blended Outlet Temperature, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {aec23a8e-b6ee-465d-9f9f-3fa4a39fbb75}, !- Handle
+  {01777d68-d776-49d2-a4d6-ca465fc1f1bf}, !- Handle
   Output Variable 22,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Ancillary Electric Power, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {7f65eff6-19e8-4f44-9c73-3d303f18e195}, !- Handle
+  {04379063-efa2-42be-8382-529227139950}, !- Handle
   Output Variable 23,                     !- Name
   ,                                       !- Key Value
   Ice Thermal Storage Ancillary Electric Energy, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {52458174-5fa3-4667-8009-a5867e534b35}, !- Handle
+  {da90a3a6-5d6a-4ecc-98f9-6c97c7b94e4e}, !- Handle
   Output Variable 24,                     !- Name
   ,                                       !- Key Value
   Chiller COP,                            !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {25c8986d-9ca1-4fc9-a27e-b74ef7a0b100}, !- Handle
+  {dbf36bd2-9bbb-4245-bfa8-33ba39039541}, !- Handle
   Output Variable 25,                     !- Name
   ,                                       !- Key Value
   Chiller Cycling Ratio,                  !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {17b800d7-aaa7-4c7f-a03e-80fdf2dde103}, !- Handle
+  {d716391e-d1c0-4463-8c6d-fc4abaed3e97}, !- Handle
   Output Variable 26,                     !- Name
   ,                                       !- Key Value
   Chiller Part Load Ratio,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {7722b9e8-c9d9-4580-8d3c-ddc229de8801}, !- Handle
+  {e6073459-66b9-43c2-8c0b-8a6cb02fe32f}, !- Handle
   Output Variable 27,                     !- Name
   ,                                       !- Key Value
   Chiller Electric Power,                 !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {dbf72505-1ca6-49f8-84fa-2a9ac4a77016}, !- Handle
+  {d4f210a6-0ae8-49d4-80c1-1b7c7e1259c3}, !- Handle
   Output Variable 28,                     !- Name
   ,                                       !- Key Value
   Chiller Electric Energy,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {b17cdb04-e4df-4979-bc72-e3eabf3de29d}, !- Handle
+  {d3871963-8f58-426a-a49d-57186b47baf4}, !- Handle
   Output Variable 29,                     !- Name
   ,                                       !- Key Value
   Chiller Evaporator Cooling Rate,        !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {16ede0bf-20c7-467e-bbf0-d2dc5a9961a1}, !- Handle
+  {a84faaa3-5d13-4051-add5-d80cda071b07}, !- Handle
   Output Variable 30,                     !- Name
   ,                                       !- Key Value
   Chiller Evaporator Cooling Energy,      !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {ba286632-2a3f-41ab-8750-e5aa81237679}, !- Handle
+  {7d563cbc-3096-453e-8f16-1e6362b6fd86}, !- Handle
   Output Variable 31,                     !- Name
   ,                                       !- Key Value
   Chiller Condenser Heat Transfer Rate,   !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {96c53d7a-0a39-4d83-b5be-d583659ba26a}, !- Handle
+  {0844342b-f33d-47ec-917f-f1ad185fd188}, !- Handle
   Output Variable 32,                     !- Name
   ,                                       !- Key Value
   Chiller Condenser Heat Transfer Energy, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {83e0fa56-d5f5-4df7-9459-8bce414cb58f}, !- Handle
+  {8e98e867-f0fb-4859-84b2-1e8ba2f78d76}, !- Handle
   Output Variable 33,                     !- Name
   ,                                       !- Key Value
   Chiller False Load Heat Transfer Rate,  !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {82103403-6da4-4cd8-b27d-924e0e593998}, !- Handle
+  {5850fbb8-625e-4397-8137-39f798860532}, !- Handle
   Output Variable 34,                     !- Name
   ,                                       !- Key Value
   Chiller False Load Heat Transfer Energy, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {ce5666f6-5502-411f-b4f5-0fa5817bd769}, !- Handle
+  {e69e4f26-5b45-4fe7-8e0a-9fe6e0839c88}, !- Handle
   Output Variable 35,                     !- Name
   ,                                       !- Key Value
   Chiller Evaporator Inlet Temperature,   !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {46309ca8-e253-4938-b904-715c7932317b}, !- Handle
+  {707553b4-10b9-4096-a294-33b9fff4ca11}, !- Handle
   Output Variable 36,                     !- Name
   ,                                       !- Key Value
   Chiller Evaporator Outlet Temperature,  !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {e863bdbb-4654-434e-a59a-626cbfca4247}, !- Handle
+  {85b27d26-edbb-485e-acfa-74c183f8f8b6}, !- Handle
   Output Variable 37,                     !- Name
   ,                                       !- Key Value
   Chiller Evaporator Mass Flow Rate,      !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {6d98553d-1219-4d5d-ac69-abf5be547ad9}, !- Handle
+  {0c48405d-84f3-4df3-ab2e-e00084acb6be}, !- Handle
   Output Variable 38,                     !- Name
   ,                                       !- Key Value
   Site Outdoor Air Drybulb Temperature,   !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {92356a56-b7be-4a7d-9b64-35604d442f53}, !- Handle
+  {22e182bf-b3f0-4fbc-b9f4-6e5ea4446d05}, !- Handle
   Output Variable 39,                     !- Name
   ,                                       !- Key Value
   Site Outdoor Air Wetbulb Temperature,   !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {3920e18a-7032-4a98-be78-515f9399a0a3}, !- Handle
+  {ba72551c-a4f0-4136-a78a-e3d037da6a07}, !- Handle
   Output Variable 40,                     !- Name
   Chilled Water Loop Demand Inlet Node,   !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {29e5190a-f3fe-48bd-8c9a-2ffbdacaab99}, !- Handle
+  {260ca6a0-3904-4049-b5fd-df574f6d8664}, !- Handle
   Output Variable 41,                     !- Name
   Chilled Water Loop Demand Outlet Node,  !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {fd017786-4ad0-434f-bc95-3af87bba2ceb}, !- Handle
+  {98144d2b-71b9-41ea-bb63-52f939370f09}, !- Handle
   Output Variable 42,                     !- Name
   Chilled Water Loop Supply Inlet Node,   !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {6c697598-78bc-4510-981f-5bb50252b5df}, !- Handle
+  {edda49fe-7c60-4fa5-a34d-ba95896fc51c}, !- Handle
   Output Variable 43,                     !- Name
   Chilled Water Loop Supply Outlet Node,  !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {6c40bb7e-477f-4cc4-84c9-7c6e81b0565f}, !- Handle
+  {ed0f3959-4601-4ad5-a5be-f9b84f5f04ac}, !- Handle
   Output Variable 44,                     !- Name
   Node 1,                                 !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {ebabe505-5d17-404e-980e-bd3e0593cd4c}, !- Handle
+  {61085d49-5dc5-4aff-97e3-02496f3b2a10}, !- Handle
   Output Variable 45,                     !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Supply Outlet Water Node, !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {e372ba53-28a2-49a9-8dfb-fe84867d063a}, !- Handle
+  {0b155148-e4c6-4320-8836-b0e6265e534d}, !- Handle
   Output Variable 46,                     !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Supply Inlet Water Node, !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {f8ad9393-e9ae-4fdd-a70a-80eb26f647b6}, !- Handle
+  {9c2e2487-529b-4335-961e-d596f1cdcc6c}, !- Handle
   Output Variable 47,                     !- Name
   Node 1,                                 !- Key Value
   System Node Temperature,                !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {d1d204e1-24a9-49cc-ae6b-cf6bc5591369}, !- Handle
+  {1ca4d673-bd6a-4d6e-99a5-f5b837eec06b}, !- Handle
   Output Variable 48,                     !- Name
   Ice Availability Schedule (New),        !- Key Value
   Schedule Value,                         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {2cc977c6-2653-4477-a986-6f6fdec8661d}, !- Handle
+  {a57f69e2-b37a-4c46-af05-a511cce2b045}, !- Handle
   Output Variable 49,                     !- Name
   Thermal Storage Ice Detailed 1 Setpoint Schedule (New), !- Key Value
   Schedule Value,                         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {67c46b10-e907-4ed3-899e-8a8a2f8c2c44}, !- Handle
+  {594308a5-0fe8-497f-9a9a-61f79865e771}, !- Handle
   Output Variable 50,                     !- Name
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Setpoint Schedule (New), !- Key Value
   Schedule Value,                         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {df0a9ddb-4443-44b3-abf0-12d0534cabe9}, !- Handle
+  {88cff195-97fd-4edb-9e95-b5115daaf3f1}, !- Handle
   Output Variable 51,                     !- Name
   Chilled Water Loop Setpoint Schedule (New), !- Key Value
   Schedule Value,                         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {23a93255-323a-4662-8345-198ddf1ccfae}, !- Handle
+  {8835d2a1-a992-48ac-aa95-841ef8d2ea71}, !- Handle
   Discharge Curve Input Value 1,          !- Name
   Curve Quadratic Linear 1,               !- Key Value
   Performance Curve Input Variable 1 Value, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {55fb647e-458c-4fb6-8c51-b37e680d7b54}, !- Handle
+  {ca77b7c7-f74f-46fb-96d8-920ec54e24eb}, !- Handle
   Discharge Curve Input Value 2,          !- Name
   Curve Quadratic Linear 1,               !- Key Value
   Performance Curve Input Variable 2 Value, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {42da387f-f540-4924-aa0b-0a46aae77b88}, !- Handle
+  {8e2d204c-95a4-4e18-bf91-35ff492505a4}, !- Handle
   Discharge Curve Output Value,           !- Name
   Curve Quadratic Linear 1,               !- Key Value
   Performance Curve Output Value,         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {5aa81355-3eff-4db9-8865-ac5138520b29}, !- Handle
+  {da51d8d3-250d-4a33-8fa1-a8aa4bc366af}, !- Handle
   Charge Curve Input Value 1,             !- Name
   Curve Quadratic Linear 2,               !- Key Value
   Performance Curve Input Variable 1 Value, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {5945a0bb-97b1-4447-ab96-01912538eaef}, !- Handle
+  {fe5a3fb9-9253-4e95-a356-99cdcdba0548}, !- Handle
   Charge Curve Input Value 2,             !- Name
   Curve Quadratic Linear 2,               !- Key Value
   Performance Curve Input Variable 2 Value, !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {0ed139d8-e602-4243-a98e-3edd5caf3a4e}, !- Handle
+  {82a51373-db17-4e21-a204-95e71e70fbf7}, !- Handle
   Charge Curve Output Value,              !- Name
   Curve Quadratic Linear 2,               !- Key Value
   Performance Curve Output Value,         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {f5248c2d-4faf-4ea4-879e-eb94c81256d9}, !- Handle
+  {401ab1b9-9217-4a31-a68a-26b95dc63e91}, !- Handle
   Charge Curve Output Value 1,            !- Name
   WaterCooled_PositiveDisplacement_Chiller_GT150_2010_PathA_CAPFT, !- Key Value
   Performance Curve Output Value,         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {dc396e94-6d51-4b41-aa1b-d14833e12e94}, !- Handle
+  {02a01418-2ad2-429d-9f32-c437a0de922d}, !- Handle
   Charge Curve Output Value 2,            !- Name
   WaterCooled_PositiveDisplacement_Chiller_GT150_2010_PathA_EIRFT, !- Key Value
   Performance Curve Output Value,         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {00f180aa-2e7f-4307-bcb2-0c24f437a9bb}, !- Handle
+  {601a3f0a-ac65-4da2-8c53-52bc405db29c}, !- Handle
   Charge Curve Output Value 3,            !- Name
   ChlrWtrCentPathAAllEIRRatio_fQRatio,    !- Key Value
   Performance Curve Output Value,         !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {78ea1486-bd3b-4599-82ea-8fc6374df843}, !- Handle
+  {e876116b-46e2-4972-b68f-ecea9c4a674a}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Nominal Capacity [W], !- Name
   ,                                       !- Key Value
   Chiller Nominal Capacity,               !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {5d334b3d-02cb-4ab2-be79-f2cc89ffb744}, !- Handle
+  {dd55d3b1-bb24-4101-a25d-9d95c0f6326e}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Limited Capacity, !- Name
   ,                                       !- Key Value
   Chiller Limited Capacity,               !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Variable,
-  {6c0692b3-7a37-4a4a-9fa2-5bfaaa582085}, !- Handle
+  {846d9885-ead9-4ce1-b7be-faee14ef0efa}, !- Handle
   90.1-2010 WaterCooled  Centrifugal Chiller 0 618tons 0.6kW/ton Limit Counter [Zone Timesteps], !- Name
   ,                                       !- Key Value
   Chiller Limit Counter,                  !- Variable Name
   Timestep;                               !- Reporting Frequency
 
 OS:Output:Meter,
-  {749e1e92-4110-49cb-97af-13e8ba210fc9}, !- Handle
+  {0efe9238-109e-4256-8ecc-e4d4fc9e5e23}, !- Handle
   Pumps:Electricity,                      !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only
   False;                                  !- Cumulative
 
 OS:Output:Meter,
-  {733eeeb7-3c0b-4d3d-8c05-2862ea3332fc}, !- Handle
+  {f588123b-bde2-44cb-9a25-60870f5ced88}, !- Handle
   Fans:Electricity,                       !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only
   False;                                  !- Cumulative
 
 OS:Output:Meter,
-  {3d96bf1e-48d0-431c-bbac-a3f8eaa4763e}, !- Handle
+  {73b73a35-96da-4b57-82f3-b8740df6cf9f}, !- Handle
   Cooling:Electricity,                    !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only
   False;                                  !- Cumulative
 
 OS:Output:Meter,
-  {0ae7216f-a4dd-4118-9191-4d1382c89c98}, !- Handle
+  {aabc00c6-920f-49b7-9f12-0689d55632d6}, !- Handle
   Electricity:HVAC,                       !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only
   False;                                  !- Cumulative
 
 OS:Output:Meter,
-  {20bcaab0-10a7-418e-bed3-ac1beec65492}, !- Handle
+  {7e476784-a024-4b50-87f7-5d1ca56b149f}, !- Handle
   Electricity:Plant,                      !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only
   False;                                  !- Cumulative
 
 OS:Output:Meter,
-  {c8811079-870f-4606-a3b1-aa356be8cfd8}, !- Handle
+  {9a128bb2-2ca5-4350-a236-f9f517d16200}, !- Handle
   Electricity:Building,                   !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only
   False;                                  !- Cumulative
 
 OS:Output:Meter,
-  {63b520a8-8c8c-4645-8c2e-704ae6dc7885}, !- Handle
+  {538ee176-1302-45eb-b064-2223e44f0052}, !- Handle
   Electricity:Facility,                   !- Name
   Timestep,                               !- Reporting Frequency
   False,                                  !- Meter File Only

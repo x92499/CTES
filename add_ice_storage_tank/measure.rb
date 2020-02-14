@@ -1,13 +1,14 @@
-# insert NREL copyright here
-
-# see the URL below for information on how to write OpenStudio measures
-# http://nrel.github.io/OpenStudio-user-documentation/reference/
-# measure_writing_guide/
+# Measure distributed under NREL Copyright terms, see LICENSE.md file.
 
 # Author: Karl Heine
-# Date: June-July 2019
-
+# Date: June 2019 - July 2020
 # Additional Code Added to Test Ice Performance for Demand Response Events: September 2019
+# Revised February 2020
+
+# References:
+# => ASHRAE Handbook, HVAC Systems and Equipment, Chapter 51: Thermal storage, 2016
+# => ASHRAE Design Guide for Cool Thermal Storage, 2nd Edition, January 2019
+# => Manufacturer marketing materials, available online
 
 #load OpenStudio measure libraries
 require "#{File.dirname(__FILE__)}/resources/OsLib_Schedules"
@@ -29,7 +30,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
   # human readable description of modeling approach
   def modeler_description
     return 'This measure adds the necessary components and performs required model articulations to add an ice ' \
-            'thermal storage tank (ITS) to an exising chilled water loop. Special consideration is given to ' \
+            'thermal storage tank (ITS) to an existing chilled water loop. Special consideration is given to ' \
             'implementing configuration and control options. Refer to the ASHRAE CTES Design Guide or manufacturer ' \
             'applications guides for detailed implementation info. A user guide document is included in the docs ' \
             'folder of this measure to help translate design objectives into measure argument input values.'
@@ -48,7 +49,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     # Make choice argument for component layout
     upstream = OpenStudio::Measure::OSArgument::makeChoiceArgument('upstream', ['Chiller', 'Storage'])
     upstream.setDisplayName('Select Upstream Device:')
-    upstream.setDescription('Partial storage only. See documentation for control implementation.')
+    upstream.setDescription('Partial Storage Only. See documentation for control implementation.')
     upstream.setDefaultValue('Chiller')
     args << upstream
 
@@ -182,7 +183,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     loop_sp = OpenStudio::Measure::OSArgument::makeDoubleArgument('loop_sp', true)
     loop_sp.setDisplayName("Loop Setpoint Temperature F:")
     loop_sp.setDescription('This value replaces the existing loop temperature setpoint manager; the old manager will ' \
-                           'be disconnected but not deleted.')
+                           'be disconnected but not deleted from the model.')
     loop_sp.setDefaultValue(44)
     args << loop_sp
 
@@ -194,7 +195,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     args << inter_sp
 
     # Make double argument for loop temperature for ice charging
-    chg_sp = OpenStudio::Measure::OSArgument::makeStringArgument('chg_sp', true)
+    chg_sp = OpenStudio::Measure::OSArgument::makeDoubleArgument('chg_sp', true)
     chg_sp.setDisplayName("Ice Charging Setpoint Temperature F:")
     chg_sp.setDefaultValue('25')
     args << chg_sp
@@ -209,33 +210,33 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     # Make string argument for ctes seasonal availabilty
     ctes_season = OpenStudio::Measure::OSArgument::makeStringArgument('ctes_season', true)
     ctes_season.setDisplayName('Enter Seasonal Availabity of Ice Storage:')
-    ctes_season.setDescription('Use MM/DD-MM/DD format.')
+    ctes_season.setDescription('Use MM/DD-MM/DD format')
     ctes_season.setDefaultValue('01/01-12/31')
     args << ctes_season
 
     # Make string arguments for ctes discharge times
     discharge_start =  OpenStudio::Measure::OSArgument::makeStringArgument('discharge_start', true)
     discharge_start.setDisplayName('Enter Starting Time for Ice Discharge:')
-    discharge_start.setDescription('Use 24 hour format (HR:MM).')
+    discharge_start.setDescription('Use 24 hour format (HR:MM)')
     discharge_start.setDefaultValue('08:00')
     args << discharge_start
 
     discharge_end = OpenStudio::Measure::OSArgument::makeStringArgument('discharge_end', true)
     discharge_end.setDisplayName('Enter End Time for Ice Discharge:')
-    discharge_end.setDescription('Use 24 hour format (HR:MM).')
+    discharge_end.setDescription('Use 24 hour format (HR:MM)')
     discharge_end.setDefaultValue('21:00')
     args << discharge_end
 
     # Make string arguments for ctes charge times
     charge_start =  OpenStudio::Measure::OSArgument::makeStringArgument('charge_start', true)
     charge_start.setDisplayName('Enter Starting Time for Ice charge:')
-    charge_start.setDescription('Use 24 hour format (HR:MM).')
+    charge_start.setDescription('Use 24 hour format (HR:MM)')
     charge_start.setDefaultValue('23:00')
     args << charge_start
 
     charge_end = OpenStudio::Measure::OSArgument::makeStringArgument('charge_end', true)
     charge_end.setDisplayName('Enter End Time for Ice charge:')
-    charge_end.setDescription('Use 24 hour format (HR:MM).')
+    charge_end.setDescription('Use 24 hour format (HR:MM)')
     charge_end.setDefaultValue('07:00')
     args << charge_end
 
@@ -326,7 +327,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     new = runner.getBoolArgumentValue('new', user_arguments)
     loop_sp = runner.getDoubleArgumentValue('loop_sp', user_arguments)
     inter_sp = runner.getDoubleArgumentValue('inter_sp', user_arguments)
-    chg_sp = runner.getStringArgumentValue('chg_sp',  user_arguments)
+    chg_sp = runner.getDoubleArgumentValue('chg_sp',  user_arguments)
     delta_t = runner.getStringArgumentValue('delta_t', user_arguments)
     ctes_season = runner.getStringArgumentValue('ctes_season',  user_arguments)
     discharge_start = runner.getStringArgumentValue('discharge_start', user_arguments)
@@ -354,17 +355,16 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
 
     ## Validate User Inputs---------------------------------------------------------------------------------------------
 
-    # Convert thermal storage capacity from ton-hours to J
+    # Convert thermal storage capacity from ton-hours to GJ
     storage_capacity = 12660670.23144e-9*storage_capacity
 
-    # Check for existence of charging setpoint temperature, reset to default if left blank. Convert string to float
-    if chg_sp.empty? || chg_sp.to_f <= 0.0
+    # Check for existence of charging setpoint temperature, reset to default if left blank.
+    if chg_sp.nil? || chg_sp >= 32.0
       runner.registerWarning('An invalid ice charging temperature was entered. Value reset to -3.88 C (25.0 F).')
-      chg_sp = '25.0'
-    elsif chg_sp.to_f < 20.0
+      chg_sp = 25.0
+    elsif chg_sp < 20.0
       runner.registerWarning('The ice charging temperature is set below 20 F; this is atypically low. Verify input.')
     end
-    chg_sp = chg_sp.to_f
 
     # Convert setpoint temperature inputs from F to C
     loop_sp = (loop_sp - 32.0)/1.8
@@ -398,7 +398,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     if delta_t != 'Use Existing Loop Value' && delta_t.to_f != 0.0
       delta_t = delta_t.to_f/1.8
     else
-      # Could add additional checks here for invalid entries (non-numerical)
+      # Could add additional checks here for invalid (non-numerical) entries
       delta_t = ctes_loop.sizingPlant.loopDesignTemperatureDifference
     end
 
@@ -415,7 +415,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
                           "window for the device. Consider increasing or setting to 0.')
     end
 
-    # Convert chiller limit to a temperature value based on delta_t variable if !=1. Otherwise, use as flag for EMS
+    # Convert chiller limit to a temperature value based on delta_t variable if != 1. Otherwise, use as flag for EMS
     if chiller_limit != 1.0
       dt_max = chiller_limit * delta_t   # degrees C
       runner.registerInfo("Max chiller dT during ice discharge is set to: #{dt_max.round(2)} C " \
@@ -425,22 +425,34 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
   	end
 
     # Check limits of chiller performance curves and adjust if necessary - Notify user with WARNING
+    curve_output_check = false
     capFT = ctes_chiller.coolingCapacityFunctionOfTemperature
     min_x = capFT.minimumValueofx.to_f
     if min_x > chg_sp
       capFT.setMinimumValueofx(chg_sp)
-      runner.registerWarning("The input range for the '#{capFT.name}' curve is too restrictive for use with ice " \
-                            "charging. The provided curve has been extrapolated to a lower limit of " \
-                            "#{chg_sp.round(2)} C for the 'x' variable.")
+      runner.registerWarning("VERIFY CURVE VALIDITY: The input range for the '#{capFT.name}' curve is too " \
+                            "restrictive for use with ice charging. The provided curve has been " \
+                            "extrapolated to a lower limit of #{chg_sp.round(2)} C for the 'x' variable.")
+      curve_output_check = true
     end
 
     eirFT = ctes_chiller.electricInputToCoolingOutputRatioFunctionOfTemperature
     min_x = eirFT.minimumValueofx.to_f
     if min_x > chg_sp
-      eirFT.setMinimumValueofx(chg_sp)
-      runner.registerWarning("The input range for the '#{eirFT.name}' curve is too restrictive for use with ice " \
-                            "charging. The provided curve has been extrapolated to a lower limit of " \
-                            "#{chg_sp.round(2)} C for the 'x' variable.")
+      runner.registerWarning("VERIFY CURVE VALIDITY: The input range for the '#{eirFT.name}' curve is too " \
+                            "restrictive for use with ice charging. The provided curve has been " \
+                            "extrapolated to a lower limit of #{chg_sp.round(2)} C for the 'x' variable.")
+    end
+
+    # Report chiller performance derate at the ice-making conditions.
+    if curve_output_check == true
+      derate = capFT.evaluate(chg_sp, ctes_chiller.referenceEnteringCondenserFluidTemperature)
+      runner.registerInfo("A curve extrapolation warning was registered for the chiller capacity as a function " \
+                          "of temperature curve. At normal ice making temperatures, a chiller derate to 60-70% " \
+                          "of nominal capacity is expected. Using a condenser entering water temperature of " \
+                          "#{ctes_chiller.referenceEnteringCondenserFluidTemperature.round(1)} C and the ice " \
+                          "charging temperature of #{chg_sp.round(1)} C, a derate to #{(derate*100).round(1)}% is " \
+                          "returned. This value will increase with lower condenser fluid return temperatures.")
     end
 
     # Check to ensure schedules are selected if old = true
@@ -459,12 +471,6 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
         runner.registerError('Pre-Defined schedule option chosen, but no chiller setpoint schedule was selected.')
         runner.registerWarning('Measure terminated early; no storage was applied.')
         return false
-      end
-
-      if !new
-        if chg_sp
-
-        end
       end
     end
 
@@ -505,8 +511,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     end
 
     ## Report Initial Condition of the Model----------------------------------------------------------------------------
-    total_storage = model.getThermalStorageIceDetaileds.size +
-                    model.getThermalStorageChilledWaterStratifieds.size
+    total_storage = model.getThermalStorageIceDetaileds.size
     runner.registerInitialCondition("The model started with #{total_storage} ice storage device(s).")
 
     runner.registerInfo("Chiller '#{selected_chiller}' on Loop '#{selected_loop}' was selected for the addition " \
@@ -590,6 +595,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
 
     # Add ice tank to loop based on user-selected objective option and upstream device
     if objective == 'Full Storage'
+      # Full storage places the ice tank upstream of the chiller with no user option to change.
       ctes.addToNode(ctes_chiller.supplyInletModelObject.get.to_Node.get)
     elsif objective == 'Partial Storage' && upstream == 'Storage'
       ctes.addToNode(ctes_chiller.supplyInletModelObject.get.to_Node.get)
@@ -597,11 +603,9 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
       ctes.addToNode(ctes_chiller.supplyOutletModelObject.get.to_Node.get)
     end
 
-
     ## Create New Schedules if Necessary--------------------------------------------------------------------------------
     #-------------------------------------------------------------------------------------------------------------------
     if new
-
       ## Check for Schedule Type Limits and Create if Needed------------------------------------------------------------
       if model.getModelObjectByName('OnOff').get.initialized
         sched_limits_onoff = model.getModelObjectByName('OnOff').get.to_ScheduleTypeLimits.get
@@ -819,7 +823,8 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
 
     ## Create EMS Components to Control Load on Upstream (Priority) Device----------------------------------------------
 
-    if chiller_limit != 1.0  || dr == true	#Flag value indicating that a chiller limiter is required or DR Test is Activated
+    #Flag value indicating that a chiller limiter is required or DR Test is Activated
+    if chiller_limit != 1.0  || dr == true
 
      	# Set up EMS output
   		output_EMS = model.getOutputEnergyManagementSystem
@@ -1244,7 +1249,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
     runner.registerInfo("#{omet_names.size} output meters were added to the model.")
 
     ## Report Final Condition of Model----------------------------------------------------------------------------------
-    total_storage = model.getThermalStorageIceDetaileds.size + model.getThermalStorageChilledWaterStratifieds.size
+    total_storage = model.getThermalStorageIceDetaileds.size
     runner.registerFinalCondition("The model finished with #{total_storage} ice energy storage device(s).")
 
     return true
