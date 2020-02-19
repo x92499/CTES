@@ -27,8 +27,8 @@ c = [0,			# constant
 Treturn = (58 - 32)/1.8		#F to C
 Tloop = (42 - 32)/1.8		#F to C
 Tfreeze = (32 - 32)/1.8		#F to C
-DeltaT = 6/1.8				#F to C
-DeltaT_Nominal = 18/1.8		#F to C
+DeltaT = 8/1.8				#F to C
+DeltaT_Nominal = 16/1.8		#F to C
 Cap = 400*12660670.23144	#Ton-hours to J
 dt = 3600					#s
 
@@ -84,7 +84,7 @@ for i in range(len(q_star_actual_trace)):
 	fig.append_trace(q_model_trace[i],2,1)
 
 fig['layout'].update(title = 'Ice Discharge Curves - Return Water at ' + str(round(Treturn, 2)) +
- 					 'C, Loop Temp at ' + str(round(Tloop, 2)), hovermode = 'closest', showlegend = False)
+ 					 'C, Loop Temp at ' + str(round(Tloop, 2)), hovermode = 'closest', showlegend = True)
 fig['layout']['xaxis1'].update(title='Fraction Discharged [-]')
 fig['layout']['yaxis1'].update(title='q* [-]')
 fig['layout']['xaxis2'].update(title='Fraction Discharged [-]')
