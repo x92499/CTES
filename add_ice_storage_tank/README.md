@@ -8,7 +8,7 @@
 This measure adds an ice storage tank to a chilled water loop for the purpose of thermal energy storage.
 
 ## Modeler Description
-This measure adds the necessary components and performs required model articulations to add an ice thermal storage tank (ITS) to an exising chilled water loop. Special consideration is given to implementing configuration and control options. Refer to the ASHRAE CTES Design Guide or manufacturer applications guides for detailed implementation info. A user guide document is included in the docs folder of this measure to help translate design objectives into measure argument input values.
+This measure adds the necessary components and performs required model articulations to add an ice thermal storage tank (ITS) to an existing chilled water loop. Special consideration is given to implementing configuration and control options. Refer to the ASHRAE CTES Design Guide or manufacturer applications guides for detailed implementation info. A user guide document is included in the docs folder of this measure to help translate design objectives into measure argument input values.
 
 ## Measure Type
 ModelMeasure
@@ -28,7 +28,7 @@ ModelMeasure
 **Model Dependent:** false
 
 ### Select Upstream Device:
-Partial storage only. See documentation for control implementation.
+Partial Storage Only. See documentation for control implementation.
 **Name:** upstream,
 **Type:** Choice,
 **Units:** ,
@@ -124,7 +124,7 @@ Use entry fields below. If Pre-Defined is also selected, these new schedules wil
 **Model Dependent:** false
 
 ### Loop Setpoint Temperature F:
-This value replaces the existing loop temperature setpoint manager; the old manager will be disconnected but not deleted.
+This value replaces the existing loop temperature setpoint manager; the old manager will be disconnected but not deleted from the model.
 **Name:** loop_sp,
 **Type:** Double,
 **Units:** ,
@@ -142,7 +142,7 @@ Partial storage only
 ### Ice Charging Setpoint Temperature F:
 
 **Name:** chg_sp,
-**Type:** String,
+**Type:** Double,
 **Units:** ,
 **Required:** true,
 **Model Dependent:** false
@@ -156,7 +156,7 @@ Enter numeric value to adjust selected loop settings.
 **Model Dependent:** false
 
 ### Enter Seasonal Availabity of Ice Storage:
-Use MM/DD-MM/DD format.
+Use MM/DD-MM/DD format
 **Name:** ctes_season,
 **Type:** String,
 **Units:** ,
@@ -164,7 +164,7 @@ Use MM/DD-MM/DD format.
 **Model Dependent:** false
 
 ### Enter Starting Time for Ice Discharge:
-Use 24 hour format (HR:MM).
+Use 24 hour format (HR:MM)
 **Name:** discharge_start,
 **Type:** String,
 **Units:** ,
@@ -172,7 +172,7 @@ Use 24 hour format (HR:MM).
 **Model Dependent:** false
 
 ### Enter End Time for Ice Discharge:
-Use 24 hour format (HR:MM).
+Use 24 hour format (HR:MM)
 **Name:** discharge_end,
 **Type:** String,
 **Units:** ,
@@ -180,7 +180,7 @@ Use 24 hour format (HR:MM).
 **Model Dependent:** false
 
 ### Enter Starting Time for Ice charge:
-Use 24 hour format (HR:MM).
+Use 24 hour format (HR:MM)
 **Name:** charge_start,
 **Type:** String,
 **Units:** ,
@@ -188,7 +188,7 @@ Use 24 hour format (HR:MM).
 **Model Dependent:** false
 
 ### Enter End Time for Ice charge:
-Use 24 hour format (HR:MM).
+Use 24 hour format (HR:MM)
 **Name:** charge_end,
 **Type:** String,
 **Units:** ,

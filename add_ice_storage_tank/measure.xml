@@ -2,13 +2,13 @@
   <schema_version>3.0</schema_version>
   <name>add_ice_storage_tank</name>
   <uid>48f37812-0cb6-4770-b695-beb8d8a5660d</uid>
-  <version_id>d564462b-a647-4d8c-811a-d096f800c787</version_id>
-  <version_modified>20200206T192927Z</version_modified>
+  <version_id>4542bea9-20d8-41bc-8613-ad4f71aae5ca</version_id>
+  <version_modified>20200221T181042Z</version_modified>
   <xml_checksum>6394841D</xml_checksum>
   <class_name>AddIceStorageTank</class_name>
   <display_name>Add Ice Storage Tank</display_name>
   <description>This measure adds an ice storage tank to a chilled water loop for the purpose of thermal energy storage.</description>
-  <modeler_description>This measure adds the necessary components and performs required model articulations to add an ice thermal storage tank (ITS) to an exising chilled water loop. Special consideration is given to implementing configuration and control options. Refer to the ASHRAE CTES Design Guide or manufacturer applications guides for detailed implementation info. A user guide document is included in the docs folder of this measure to help translate design objectives into measure argument input values.</modeler_description>
+  <modeler_description>This measure adds the necessary components and performs required model articulations to add an ice thermal storage tank (ITS) to an existing chilled water loop. Special consideration is given to implementing configuration and control options. Refer to the ASHRAE CTES Design Guide or manufacturer applications guides for detailed implementation info. A user guide document is included in the docs folder of this measure to help translate design objectives into measure argument input values.</modeler_description>
   <arguments>
     <argument>
       <name>objective</name>
@@ -31,7 +31,7 @@
     <argument>
       <name>upstream</name>
       <display_name>Select Upstream Device:</display_name>
-      <description>Partial storage only. See documentation for control implementation.</description>
+      <description>Partial Storage Only. See documentation for control implementation.</description>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -190,7 +190,7 @@
     <argument>
       <name>loop_sp</name>
       <display_name>Loop Setpoint Temperature F:</display_name>
-      <description>This value replaces the existing loop temperature setpoint manager; the old manager will be disconnected but not deleted.</description>
+      <description>This value replaces the existing loop temperature setpoint manager; the old manager will be disconnected but not deleted from the model.</description>
       <type>Double</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -208,7 +208,7 @@
     <argument>
       <name>chg_sp</name>
       <display_name>Ice Charging Setpoint Temperature F:</display_name>
-      <type>String</type>
+      <type>Double</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
       <default_value>25</default_value>
@@ -225,7 +225,7 @@
     <argument>
       <name>ctes_season</name>
       <display_name>Enter Seasonal Availabity of Ice Storage:</display_name>
-      <description>Use MM/DD-MM/DD format.</description>
+      <description>Use MM/DD-MM/DD format</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -234,7 +234,7 @@
     <argument>
       <name>discharge_start</name>
       <display_name>Enter Starting Time for Ice Discharge:</display_name>
-      <description>Use 24 hour format (HR:MM).</description>
+      <description>Use 24 hour format (HR:MM)</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -243,7 +243,7 @@
     <argument>
       <name>discharge_end</name>
       <display_name>Enter End Time for Ice Discharge:</display_name>
-      <description>Use 24 hour format (HR:MM).</description>
+      <description>Use 24 hour format (HR:MM)</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -252,7 +252,7 @@
     <argument>
       <name>charge_start</name>
       <display_name>Enter Starting Time for Ice charge:</display_name>
-      <description>Use 24 hour format (HR:MM).</description>
+      <description>Use 24 hour format (HR:MM)</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -261,7 +261,7 @@
     <argument>
       <name>charge_end</name>
       <display_name>Enter End Time for Ice charge:</display_name>
-      <description>Use 24 hour format (HR:MM).</description>
+      <description>Use 24 hour format (HR:MM)</description>
       <type>String</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -449,22 +449,10 @@
   </attributes>
   <files>
     <file>
-      <filename>LICENSE.md</filename>
-      <filetype>md</filetype>
-      <usage_type>license</usage_type>
-      <checksum>CD7F5672</checksum>
-    </file>
-    <file>
       <filename>README.md.erb</filename>
       <filetype>erb</filetype>
       <usage_type>readmeerb</usage_type>
       <checksum>703C9964</checksum>
-    </file>
-    <file>
-      <filename>.gitkeep</filename>
-      <filetype>gitkeep</filetype>
-      <usage_type>doc</usage_type>
-      <checksum>00000000</checksum>
     </file>
     <file>
       <filename>OsLib_Schedules.rb</filename>
@@ -479,16 +467,16 @@
       <checksum>A3FC1180</checksum>
     </file>
     <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>59B484B4</checksum>
+    </file>
+    <file>
       <filename>add_ice_storage_tank_test.rb</filename>
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
-      <checksum>18713C47</checksum>
-    </file>
-    <file>
-      <filename>README.md</filename>
-      <filetype>md</filetype>
-      <usage_type>readme</usage_type>
-      <checksum>B4DE1772</checksum>
+      <checksum>69FD7D10</checksum>
     </file>
     <file>
       <version>
@@ -499,7 +487,25 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>C509B971</checksum>
+      <checksum>8276A7E7</checksum>
+    </file>
+    <file>
+      <filename>Ice Measure Implementation Guide.pdf</filename>
+      <filetype>pdf</filetype>
+      <usage_type>doc</usage_type>
+      <checksum>525BB88D</checksum>
+    </file>
+    <file>
+      <filename>Measure Application Guide.docx</filename>
+      <filetype>docx</filetype>
+      <usage_type>doc</usage_type>
+      <checksum>602E6DE5</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>7A24E7B9</checksum>
     </file>
   </files>
 </measure>
