@@ -279,7 +279,7 @@ class AddIceStorageTank < OpenStudio::Measure::ModelMeasure
   	# Make string argument for DR Event time
   	dr_time = OpenStudio::Measure::OSArgument::makeStringArgument('dr_time', false)
   	dr_time.setDisplayName('Enter start time of demand response event:')
-  	dr_time.setDescription('Use 24hr format.')
+  	dr_time.setDescription('Use 24 hour format (HR:MM)')
   	dr_time.setDefaultValue('11:30')
   	args << dr_time
 
